@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red_error">#FFE63946</color>
+    <color name="peace_blue">#ffA8DADC</color>
+    <color name="blue_medium">#ff457B9D</color>
+    <color name="white_contrast">#ffF1FAEE</color>
+    <color name="dark_blue">#ff1D3557</color>
+    <color name="dark_mode_black">#ff03001C</color>
+    <color name="dark_mode_purple">#ff301E67</color>
+    <color name="dark_mode_blue">#ff5B8FB9</color>
+    <color name="dark_mode_cyan">#ffB6EADA</color>
+    <color name="sympla_blue">#ff0097FF</color>
+</resources>

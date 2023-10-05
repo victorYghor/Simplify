@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" translatable="false">Simplify</string>
+    <string name="welcome_msg">Seja bem vindo ao:</string>
+    <string name="here_you_can_stay_up">Aqui você fica por dentro dos principais eventos que ocorrem em sua região</string>
+    <string name="always_be_notified">Seja sempre notificado!</string>
+    <string name="custom_notifications">Notificações personalizadas</string>
+    <string name="events_are_better_with_friends">Events are better with friends</string>
+    <string name="engage_in">Engage in events with your community</string>
+    <string name="see_what_people_are_saying">Veja o que as pessoas estão falando sobre esse evento.</string>
+    <string name="keep_magical_memories">Guarde memórias mágicas</string>
+    <string name="never_get_lost">Never get lost on the way to events again</string>
+</resources>
