@@ -7,10 +7,12 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fgm_conteiner"
+        android:id="@+id/Presentation1"
         android:name="com.simplify.simplify.Presentation1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_apresentation1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
