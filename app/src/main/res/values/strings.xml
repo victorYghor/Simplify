@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Simplify</string>
+    <string name="app_name" translatable="false">Symplify</string>
     <string name="welcome_msg">Seja bem vindo ao:</string>
     <string name="here_you_can_stay_up">Aqui você fica por dentro dos principais eventos que ocorrem em sua região</string>
     <string name="always_be_notified">Seja sempre notificado!</string>
