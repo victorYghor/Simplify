@@ -1,4 +1,4 @@
-package com.simplify.simplify
+package com.simplify.symplify
 
 import org.junit.Test
 
