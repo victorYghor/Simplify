@@ -28,6 +28,7 @@ class Presentation1 : Fragment() {
         b = FragmentApresentation1Binding.inflate(inflater)
 
         Log.d("codeReach", "presentation1 onCreateView")
+        // for some reason container view only work with viewBinding
         return b.root
     }
 
