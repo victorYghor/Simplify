@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.simplify.simplify.databinding.FragmentApresentation1Binding
 
 /**
  * A simple [Fragment] subclass.
@@ -14,6 +15,7 @@ import android.view.ViewGroup
  */
 class Presentation1 : Fragment() {
 
+    lateinit var b: FragmentApresentation1Binding
     init {
         Log.d("codeReach", "the Presentation1 was initialized")
     }
@@ -23,8 +25,10 @@ class Presentation1 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        b = FragmentApresentation1Binding.inflate(inflater)
+
         Log.d("codeReach", "presentation1 onCreateView")
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return b.root
     }
 
 }
