@@ -9,4 +9,10 @@
     <string name="see_what_people_are_saying">Veja o que as pessoas estão falando sobre esse evento.</string>
     <string name="keep_magical_memories">Guarde memórias mágicas</string>
     <string name="never_get_lost">Never get lost on the way to events again</string>
+    <string name="recover_password">Recuperação de senha</string>
+    <string name="code_will_be_sent_to_your_email">um código será enviado para seu e-mail</string>
+    <string name="sent">Enviar</string>
+    <string name="instructions_for_putting_code">coloque o dígito que você recebeu por email</string>
+    <string name="put_your_code">insira seu código</string>
+    <string name="login">Login</string>
 </resources>
