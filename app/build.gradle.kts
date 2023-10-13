@@ -70,4 +70,7 @@ dependencies {
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
+
+    // google fonts implementation
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.3")
 }

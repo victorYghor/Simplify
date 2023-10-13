@@ -27,7 +27,6 @@ fun SymplifyTheme(
     val colorScheme = LightDefaultColorScheme
     MaterialTheme(
         colorScheme = colorScheme,
-        typography =
     ) {
 
     }
