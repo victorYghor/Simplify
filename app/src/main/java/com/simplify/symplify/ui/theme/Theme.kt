@@ -1,4 +1,4 @@
-package com.simplify.simplify.ui.theme
+package com.simplify.symplify.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -14,7 +14,9 @@ val LightDefaultColorScheme = lightColorScheme(
     primary = Blue800,
     onPrimary = Color.White,
     secondary = Purple800,
-    onSecondary = Color.White
+    onSecondary = Color.White,
+    background = Color.White,
+    onBackground = Color.Black
 )
 
 @Composable

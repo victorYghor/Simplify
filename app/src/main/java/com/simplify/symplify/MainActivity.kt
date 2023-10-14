@@ -1,4 +1,4 @@
-package com.simplify.simplify
+package com.simplify.symplify
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.connector.AnalyticsConnector
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
-import com.simplify.simplify.ui.theme.SymplifyTheme
+import com.simplify.symplify.ui.theme.SymplifyTheme
 
 class MainActivity : AppCompatActivity() {
     private lateinit var analytics: FirebaseAnalytics
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Text("hello from symplify")
-                    Log.i("codeReach", "inside the text file")
                 }
             }
         }

@@ -26,4 +26,5 @@
     <string name="instructions_for_putting_code">coloque o dígito que você recebeu por email</string>
     <string name="put_your_code">insira seu código</string>
     <string name="login">Login</string>
+    <string name="btn_go_to_next_slides">botão ir para o próximo slide</string>
 </resources>

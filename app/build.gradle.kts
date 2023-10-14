@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.simplify.simplify"
+    namespace = "com.simplify.symplify"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.simplify.simplify"
+        applicationId = "com.simplify.symplify"
         minSdk = 27
         targetSdk = 34
         versionCode = 1
