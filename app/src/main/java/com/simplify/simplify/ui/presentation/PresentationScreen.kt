@@ -1,4 +1,4 @@
-package com.simplify.symplify.presentation
+package com.simplify.simplify.ui.presentation
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold

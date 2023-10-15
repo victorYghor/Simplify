@@ -1,4 +1,4 @@
-package com.simplify.symplify.presentation
+package com.simplify.simplify.ui.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -28,13 +28,15 @@ fun BottomAppBarDefaults(
     ) {
         Spacer(modifier = Modifier.weight(1f))
         CirclesNavButtons(presentationNumber = slideNumber, modifier = Modifier.weight(1f))
-        Icon(
-            painter = painterResource(id = R.drawable.right_arrow),
-            contentDescription = stringResource(
-                R.string.btn_go_to_next_slides
-            ),
-            modifier = Modifier.weight(1f)
-        )
+        IconButton(onClick = { goToNextSlide() }) {
+            Icon(
+                painter = painterResource(id = R.drawable.right_arrow),
+                contentDescription = stringResource(
+                    R.string.btn_go_to_next_slides
+                ),
+                modifier = Modifier.weight(1f)
+            )
+        }
     }
 }
 
