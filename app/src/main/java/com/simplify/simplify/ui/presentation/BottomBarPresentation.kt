@@ -1,5 +1,6 @@
 package com.simplify.simplify.ui.presentation
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -56,45 +57,45 @@ fun CirclesNavButtons(
     ) {
         when (presentationNumber) {
             1 -> {
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_off),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_off),
                     contentDescription = null
                 )
             }
 
             2 -> {
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_off),
                     contentDescription = null
                 )
             }
 
             3 -> {
-                Icon(
+                Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
-                Icon(
+               Image(
                     painter = painterResource(id = R.drawable.circle_on),
                     contentDescription = null
                 )
