@@ -24,11 +24,11 @@ val fontFamily = FontFamily(
 /* here I am pass the text style for the Text Composable that I have
 * */
 val typography = Typography(
-    bodyLarge = TextStyle(
+    bodyMedium = TextStyle(
         fontFamily = fontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 26.sp,
-        lineHeight = 24.sp,
+        fontSize = 24.sp,
+        lineHeight = 26.sp,
         letterSpacing = 0.5.sp
     ),
     titleMedium = TextStyle(
@@ -37,5 +37,5 @@ val typography = Typography(
         fontSize = 32.sp,
         lineHeight = 30.sp,
         letterSpacing = 0.5.sp
-    )
+    ),
 )
