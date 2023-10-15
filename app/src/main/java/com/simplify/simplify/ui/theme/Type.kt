@@ -21,6 +21,8 @@ val fontFamily = FontFamily(
     Font(googleFont = fontName, fontProvider = provider)
 )
 
+/* here I am pass the text style for the Text Composable that I have
+* */
 val typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = fontFamily,
