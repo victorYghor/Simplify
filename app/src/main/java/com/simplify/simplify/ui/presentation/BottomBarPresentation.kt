@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.simplify.symplify.R
+import com.simplify.simplify.R
 
 @Composable
 fun BottomAppBarDefaults(
