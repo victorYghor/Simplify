@@ -6,6 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.simplify.simplify.R
 
@@ -21,12 +22,14 @@ val fontFamily = FontFamily(
     Font(googleFont = fontName, fontProvider = provider)
 )
 
-val typography = Typography(
-    bodyLarge = TextStyle(
+/* here I am pass the text style for the Text Composable that I have
+* */
+val simplifyTypography = Typography(
+    bodyMedium = TextStyle(
         fontFamily = fontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 26.sp,
-        lineHeight = 24.sp,
+        fontSize = 24.sp,
+        lineHeight = 26.sp,
         letterSpacing = 0.5.sp
     ),
     titleMedium = TextStyle(
@@ -35,5 +38,26 @@ val typography = Typography(
         fontSize = 32.sp,
         lineHeight = 30.sp,
         letterSpacing = 0.5.sp
+    ),
+    bodySmall = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp,
+        lineHeight = 22.sp,
+        letterSpacing = 0.5.sp
+    ),
+    titleSmall = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 28.sp,
+        lineHeight = 30.sp,
+        letterSpacing = 0.5.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 48.sp,
+        lineHeight = 50.sp,
+        letterSpacing = 1.sp
     )
 )
