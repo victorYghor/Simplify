@@ -2,6 +2,7 @@ package com.simplify.simplify.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -22,13 +23,14 @@ fun SymplifyTheme(
     disableDynamicTheming: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    // you need to pass the content for your app work correctly
     val colorScheme = LightDefaultColorScheme
     MaterialTheme(
         colorScheme = colorScheme,
-    ) {
-
-    }
-
+        typography = typography,
+        shapes = Shapes(),
+        content = content
+    )
 }
 
 
