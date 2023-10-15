@@ -44,20 +44,19 @@ android {
 
 dependencies {
     // what is composebo
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.00")
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
+//    val composeBom = platform("androidx.compose:compose-bom:2023.10.00")
+//    implementation(composeBom)
+//    androidTestImplementation(composeBom)
     // compose
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
     // material icons
-    implementation("androidx.compose.material:material-icons-extended")
     // integration with activities
     implementation("androidx.activity:activity-compose:1.8.0")
     // integration with viewModels
     implementation("androidx.activity:activity-compose:1.8.0")
-    implementation("androidx.core:core-ktx:1.9.10")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
 
     testImplementation("junit:junit:4.13.2")
@@ -73,4 +72,7 @@ dependencies {
 
     // google fonts implementation
     implementation("androidx.compose.ui:ui-text-google-fonts:1.5.3")
+
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.ui:ui-tooling-preview")
 }
