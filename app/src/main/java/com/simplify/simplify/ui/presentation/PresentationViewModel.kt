@@ -20,11 +20,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class PresentationViewModel(val goToLogin: () -> Unit): ViewModel() {
-    private val _slideNumber = MutableStateFlow(1)
+    private val _slideNumber = MutableStateFlow(0)
     val slideNumber = _slideNumber.asStateFlow()
 
     fun goToNextSlide() {
-        if(_slideNumber.value > 2) {
+        if(_slideNumber.value > 1) {
             goToLogin()
         } else {
             _slideNumber.update { it + 1 }
@@ -32,7 +32,7 @@ class PresentationViewModel(val goToLogin: () -> Unit): ViewModel() {
     }
 
     fun updateSlideNumber(newNumber: Int) {
-        if(newNumber > 3 || newNumber < 1) {
+        if(newNumber > 2 || newNumber < 0) {
             Log.e("PresentationViewModel", "this number is not in the range")
         } else {
             _slideNumber.update {
