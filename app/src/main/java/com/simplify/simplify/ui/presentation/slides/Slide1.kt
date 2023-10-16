@@ -1,6 +1,5 @@
 package com.simplify.simplify.ui.presentation.slides
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,11 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.simplify.simplify.R
 import com.simplify.simplify.ui.components.SimplifyText
+import com.simplify.simplify.ui.components.SymplifyLogo
 import com.simplify.simplify.ui.theme.Blue800
 import com.simplify.simplify.ui.theme.simplifyTypography
 
@@ -32,11 +31,7 @@ fun Slide1(innerPadding: PaddingValues) {
         verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
         SimplifyText(R.string.welcome_msg, style = simplifyTypography.titleMedium)
-        Image(
-            painterResource(R.drawable.symplify),
-            contentDescription = stringResource(R.string.simplify_logo)
-        )
-        SimplifyText(R.string.app_name, simplifyTypography.titleMedium)
+        SymplifyLogo()
         SimplifyText(R.string.here_you_can_stay_up, style = simplifyTypography.bodyMedium)
         Row(horizontalArrangement = Arrangement.Start, verticalAlignment = Alignment.CenterVertically,  modifier = Modifier.fillMaxWidth()) {
             Icon(
