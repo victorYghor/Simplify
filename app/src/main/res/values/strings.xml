@@ -30,4 +30,8 @@
     <string name="login">Login</string>
     <string name="btn_go_to_next_slides">botão ir para o próximo slide</string>
     <string name="simplify_logo">Symplify logo</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">symplify</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fbsymplify</string>
 </resources>

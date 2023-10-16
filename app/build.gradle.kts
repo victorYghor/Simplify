@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -73,6 +74,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     // for using lifecycle in compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+    // google fonts implementation
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.3")
+
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     // When using the BoM, you don't specify versions in Firebase library dependencies
@@ -80,6 +84,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
 
-    // google fonts implementation
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.3")
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+//    implementation("com.facebook.android:facebook-android-sdk:8.x")
 }

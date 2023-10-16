@@ -18,7 +18,6 @@ import com.simplify.simplify.ui.presentation.slides.Slide3
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun PresentationScreen(
-    viewModel: PresentationViewModel
 ) {
 
     val sliderState = rememberPagerState(pageCount = {
@@ -47,6 +46,5 @@ fun PresentationScreen(
 @Preview(showBackground = true)
 @Composable
 fun PresentationScreenPreview() {
-    val vm = PresentationViewModel({})
-    PresentationScreen(vm)
+    PresentationScreen()
 }
