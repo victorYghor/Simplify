@@ -1,6 +1,7 @@
 package com.simplify.simplify.ui.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,9 +23,10 @@ import com.simplify.simplify.R
 
 @Composable
 fun BottomBarSlide(
-    goToNextSlide: () -> Unit
+    goToNextSlide: () -> Unit,
+    slideNumber: Int,
+    updateSlide: (Int) -> Unit
 ) {
-    val slideNumber by remember { mutableStateOf(1) }
 
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -32,83 +34,44 @@ fun BottomBarSlide(
         modifier = Modifier.fillMaxWidth()
     ) {
         Spacer(modifier = Modifier)
-        CirclesNavButtons(presentationNumber = slideNumber, modifier = Modifier.size(width = 250.dp, height = 50.dp))
-        IconButton(onClick = { goToNextSlide() }) {
+        CirclesNavButtons(presentationNumber = slideNumber, modifier = Modifier.size(width = 250.dp, height = 90.dp), updateSlide = updateSlide)
+        IconButton(onClick = { goToNextSlide() }, modifier = Modifier.size(72.dp)) {
             Icon(
-                painter = painterResource(id = R.drawable.right_arrow),
-                contentDescription = stringResource(
-                    R.string.btn_go_to_next_slides
-                ),
-                modifier = Modifier.size(64.dp)
+                painterResource(R.drawable.right_arrow),
+                contentDescription = stringResource(R.string.btn_go_to_next_slides),
+                modifier = Modifier.size(72.dp)
             )
         }
     }
 }
 
+
+@Preview(showBackground = true)
 @Composable
-fun CirclesNavButtons(
-    presentationNumber: Int,
-    modifier: Modifier
-) {
+fun BottomAppBarDefaultsPreview() {
+    BottomBarSlide( { }, 1, updateSlide = {})
+}
+@Composable
+fun CirclesNavButtons(presentationNumber: Int, modifier: Modifier, updateSlide: (Int) -> Unit) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
     ) {
-        when (presentationNumber) {
-            1 -> {
-               Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_off),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_off),
-                    contentDescription = null
-                )
-            }
-
-            2 -> {
-               Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_off),
-                    contentDescription = null
-                )
-            }
-
-            3 -> {
-                Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-               Image(
-                    painter = painterResource(id = R.drawable.circle_on),
-                    contentDescription = null
-                )
-            }
-        }
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BottomAppBarDefaultsPreview() {
-    BottomBarSlide {
-
+        Image(
+            painter = painterResource(id = R.drawable.circle_on),
+            contentDescription = null,
+            modifier = Modifier.size(50.dp).clickable { updateSlide(1) }
+        )
+        Image(
+            painter = painterResource(id = if(presentationNumber > 1) R.drawable.circle_on else R.drawable.circle_off),
+            contentDescription = null,
+            modifier = Modifier.size(50.dp).clickable { updateSlide(2)  }
+        )
+        Image(
+            painter = painterResource(id = if(presentationNumber > 2) R.drawable.circle_on else R.drawable.circle_off),
+            contentDescription = null,
+            modifier = Modifier.size(50.dp).clickable { updateSlide(3) }
+        )
     }
 }

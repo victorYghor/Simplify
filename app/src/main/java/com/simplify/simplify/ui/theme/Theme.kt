@@ -17,7 +17,7 @@ val LightDefaultColorScheme = lightColorScheme(
 )
 
 @Composable
-fun SymplifyTheme(
+fun SimplifyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     androidTheme: Boolean = false,
     disableDynamicTheming: Boolean = true,
@@ -27,7 +27,7 @@ fun SymplifyTheme(
     val colorScheme = LightDefaultColorScheme
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = typography,
+        typography = simplifyTypography,
         shapes = Shapes(),
         content = content
     )

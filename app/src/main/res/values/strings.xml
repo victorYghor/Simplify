@@ -6,12 +6,14 @@
     <string name="always_be_notified">Seja sempre notificado!</string>
     <string name="custom_notifications">Notificações personalizadas</string>
     <!--Second screen-->
-    <string name="events_are_better_with_friends">Events are better with friends</string>
+    <string name="events_are_better_with_friends">Eventos são melhores com amigos</string>
     <string name="engage_in">Engajem nos eventos com sua comunidade</string>
     <string name="see_what_people_are_saying">Veja o que as pessoas estão falando sobre esse evento.</string>
     <!--third screen-->
     <string name="see_your_photos_taken">Veja suas fotos tiradas nos eventos</string>
     <string name="conect_with_partipants">Conecte-se com os participantes</string>
+    <string name="schedule_of_events">Agenda de eventos</string>
+    <string name="visualize_the_events_in_your_city">Visualize os eventos que ocorrem em sua cidade de uma maneira simplificada</string>
     <!--MVP strings-->
     <string name="enter">Entrar</string>
     <string name="contunie_with">continue com </string>

@@ -71,7 +71,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
+    // for using lifecycle in compose
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     // When using the BoM, you don't specify versions in Firebase library dependencies
