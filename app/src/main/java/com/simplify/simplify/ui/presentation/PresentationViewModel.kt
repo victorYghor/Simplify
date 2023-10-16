@@ -23,22 +23,5 @@ class PresentationViewModel(val goToLogin: () -> Unit): ViewModel() {
     private val _slideNumber = MutableStateFlow(0)
     val slideNumber = _slideNumber.asStateFlow()
 
-    fun goToNextSlide() {
-        if(_slideNumber.value > 1) {
-            goToLogin()
-        } else {
-            _slideNumber.update { it + 1 }
-        }
-    }
-
-    fun updateSlideNumber(newNumber: Int) {
-        if(newNumber > 2 || newNumber < 0) {
-            Log.e("PresentationViewModel", "this number is not in the range")
-        } else {
-            _slideNumber.update {
-                newNumber
-            }
-        }
-    }
 }
 
