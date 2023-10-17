@@ -16,10 +16,11 @@
     <string name="visualize_the_events_in_your_city">Visualize os eventos que ocorrem em sua cidade de uma maneira simplificada</string>
     <!--MVP strings-->
     <string name="enter">Entrar</string>
-    <string name="contunie_with">continue com </string>
+    <string name="contunie_with">continue com  </string>
     <string name="google" translatable="false">google</string>
     <string name="facebook" translatable="false">facebook</string>
     <string name="linkedin" translatable="false">linkedin</string>
+    <string name="git_hub">Github</string>
 
     <!--Strings for the future versions of the app-->
     <string name="recover_password">Recuperação de senha</string>
