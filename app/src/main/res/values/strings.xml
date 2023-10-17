@@ -31,6 +31,11 @@
     <string name="login">Login</string>
     <string name="btn_go_to_next_slides">botão ir para o próximo slide</string>
     <string name="simplify_logo">Symplify logo</string>
+    <string name="continue_you_agree">Continuando, você concorda com os </string>
+    <string name="service_terms">termos de serviço</string>
+    <string name="of_simplify">do Symplify</string>
+    <string name="we_use_personal_info">Nos utilizamos iformações pessoais como descrevemos na nossa</string>
+    <string name="privacy_policy">políticas de privacidade</string>
 
     <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
     <string name="facebook_application_id" translatable="false">symplify</string>
