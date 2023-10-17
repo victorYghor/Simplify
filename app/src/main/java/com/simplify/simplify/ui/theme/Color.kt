@@ -6,6 +6,9 @@ import androidx.compose.ui.graphics.Color
 val Blue800 = Color(0xFF0872C5)
 val Black = Color(0xFF0E0E0E)
 val Purple800 = Color(0xFF5D1ABD)
+val FaceBlue = Color(0xFF3B5998)
+val LinkedinBlue = Color(0xFF007BB5)
+val GithubDark = Color(0xFF232323)
 
 val Gray0 = Color(0xFFFFFFFF)
 val Gray50 = Color(0xFFF6F6F6)
