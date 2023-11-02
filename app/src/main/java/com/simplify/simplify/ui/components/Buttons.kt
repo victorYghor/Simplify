@@ -28,14 +28,14 @@ import com.simplify.simplify.ui.theme.simplifyTypography
 fun SymplifyButtons(
     textRes: Int,
     modifier: Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = { onClick() },
-        colors = filledTonalButtonColors(containerColor = Blue800, contentColor = Color.White),
+        colors = buttonColors(containerColor = Blue800, contentColor = Color.White),
         modifier = modifier.size(width = 320.dp, height = 72.dp)
     ) {
-        SimplifyText(textRes, simplifyTypography.titleSmall)
+        SimplifyText(textRes, simplifyTypography.titleSmall, color = Color.White)
     }
 }
 
