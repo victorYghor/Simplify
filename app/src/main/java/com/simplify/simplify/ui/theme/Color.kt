@@ -9,7 +9,7 @@ val Purple800 = Color(0xFF5D1ABD)
 val FaceBlue = Color(0xFF3B5998)
 val LinkedinBlue = Color(0xFF007BB5)
 val GithubDark = Color(0xFF232323)
-val clickableText = Color(0xFFe63946)
+val clickableText = Color(0xFF0097FF)
 
 val Gray0 = Color(0xFFFFFFFF)
 val Gray50 = Color(0xFFF6F6F6)

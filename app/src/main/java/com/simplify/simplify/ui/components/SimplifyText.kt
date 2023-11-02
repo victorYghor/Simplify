@@ -8,6 +8,6 @@ import androidx.compose.ui.text.TextStyle
 import com.simplify.simplify.ui.theme.Black
 
 @Composable
-fun SimplifyText(text: Int, style: TextStyle, color: Color = Color.White) {
+fun SimplifyText(text: Int, style: TextStyle, color: Color = Color.Black) {
     Text(text = stringResource(text), style = style, color = color)
 }
