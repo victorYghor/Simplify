@@ -12,7 +12,20 @@
           "package_name": "com.simplify.simplify"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1098570399805-25f0etjm679g5v00vpj4etpptrh5ls4q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simplify.simplify",
+            "certificate_hash": "fe3eeca15c7637db41f1d88727e2ea748d0c3215"
+          }
+        },
+        {
+          "client_id": "1098570399805-145sdnvv1dgnah1n2k5r9c6no86ihe3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDpAEMB9Vxz-oAM79l6ZncWE5s6R_tWxg4"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098570399805-145sdnvv1dgnah1n2k5r9c6no86ihe3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
