@@ -36,22 +36,16 @@ fun PresentationScreen(
         bottomBar = {
             BottomBarSlide (
                 slideNumber = sliderState.currentPage,
-                slideState = sliderState
+                slideState = sliderState,
+                onComplete = onComplete
             )
         }
     ) { innerPadding ->
-        var offset by remember { mutableStateOf(0f) }
-        HorizontalPager(sliderState, modifier = Modifier.scrollable(
-            orientation = Orientation.Horizontal,
-            state = rememberScrollableState { delta ->
-                offset += delta
-                delta
-            }
-        )) { page ->
+        HorizontalPager(sliderState) { page ->
             when(page) {
                 0 -> Slide1(innerPadding)
                 1 -> Slide2(innerPadding)
-                2 -> Slide3(innerPadding, { onComplete() }, offset)
+                2 -> Slide3(innerPadding) { onComplete() }
             }
         }
     }

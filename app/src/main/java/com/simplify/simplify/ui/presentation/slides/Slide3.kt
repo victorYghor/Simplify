@@ -28,7 +28,7 @@ import com.simplify.simplify.R
 import com.simplify.simplify.ui.components.SimplifyText
 
 @Composable
-fun Slide3(innerPadding: PaddingValues, onComplete: () -> Unit, offset: Float) {
+fun Slide3(innerPadding: PaddingValues, onComplete: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
@@ -39,17 +39,11 @@ fun Slide3(innerPadding: PaddingValues, onComplete: () -> Unit, offset: Float) {
             text = R.string.visualize_the_events_in_your_city,
             style = typography.bodyMedium
         )
-        Text(offset.toString())
-
-        LaunchedEffect(offset < -250f) {
-            Log.i("Slide3", "OnCompleteCalled")
-            onComplete()
-        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun Slide3Preview() {
-    Slide3(innerPadding = PaddingValues(), onComplete = {}, offset = 1f)
+    Slide3(innerPadding = PaddingValues(), onComplete = {})
 }

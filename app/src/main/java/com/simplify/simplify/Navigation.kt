@@ -18,7 +18,8 @@ object Destinations {
 }
 @Composable
 fun SimplifyNavHost(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    firstAccess: Boolean
 ) {
     NavHost(
         navController = navController,
@@ -27,7 +28,9 @@ fun SimplifyNavHost(
         composable(PRESENTATION) {
             PresentationScreen(
                 onComplete = {
-                    navController.navigate(LOGIN)
+                    navController.navigate(LOGIN) {
+                        launchSingleTop = true
+                    }
                 }
             )
         }

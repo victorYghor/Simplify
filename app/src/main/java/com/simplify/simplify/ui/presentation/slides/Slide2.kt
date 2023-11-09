@@ -25,7 +25,7 @@ fun Slide2(innerPadding: PaddingValues) {
     Column(
         verticalArrangement = Arrangement.spacedBy(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().padding(innerPadding).padding(8.dp)
+        modifier = Modifier.fillMaxSize().padding(innerPadding)
     ) {
         SimplifyText(text = R.string.events_are_better_with_friends, style = typography.titleSmall)
         Icon(
