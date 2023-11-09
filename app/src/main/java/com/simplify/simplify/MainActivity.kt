@@ -29,12 +29,15 @@ class MainActivity : AppCompatActivity() {
     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "info")
     val FIRST_ACESS = booleanPreferencesKey("first_acess")
     val scope = this.lifecycleScope
-    var firstAccess: Boolean = dataStore.data.map { info ->
-        info[FIRST_ACESS] ?: true
-    }.first()
 
+    var firstAccess: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        scope.launch {
+            firstAccess = dataStore.data.map { info ->
+                info[FIRST_ACESS] ?: true
+            }.first()
+        }
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
         val currentUser = auth.currentUser
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     supportActionBar?.hide()
-                    SimplifyNavHost(firstAccess = firstAccess)
+                    SimplifyNavHost(firstAccess = firstAccess!!)
                 }
             }
         }
