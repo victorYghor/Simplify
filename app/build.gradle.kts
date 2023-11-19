@@ -90,6 +90,9 @@ dependencies {
 
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // splash screen
+    implementation("androidx.core:core-splashscreen:1.1.0-alpha02")
+
     // Required only if Facebook login support is required
     // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
 //    implementation("com.facebook.android:facebook-android-sdk:8.x")

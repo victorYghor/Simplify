@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -25,25 +26,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    lateinit var auth: FirebaseAuth
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "info")
-    val FIRST_ACESS = booleanPreferencesKey("first_acess")
-    val scope = this.lifecycleScope
-
-    var firstAccess: Boolean? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        scope.launch {
-            firstAccess = dataStore.data.map { info ->
-                info[FIRST_ACESS] ?: true
-            }.first()
-        }
         super.onCreate(savedInstanceState)
-        auth = Firebase.auth
-        val currentUser = auth.currentUser
-        if(currentUser != null) {
-
-        }
+        installSplashScreen()
         setContent {
             SimplifyTheme {
                 Surface(
@@ -51,13 +36,8 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     supportActionBar?.hide()
-                    SimplifyNavHost(firstAccess = firstAccess!!)
+                    SimplifyNavHost(firstAccess = true)
                 }
-            }
-        }
-        scope.launch {
-            dataStore.edit { info ->
-                info[FIRST_ACESS] = false
             }
         }
     }
