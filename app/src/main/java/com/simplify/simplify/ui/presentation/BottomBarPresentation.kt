@@ -51,9 +51,7 @@ fun BottomBarSlide(
         )
         Button(
             onClick = {
-                Log.i("BottomBar", "on click")
                 scope.launch {
-                    Log.i("BottomBar", "reach coroutine")
                     when(slideNumber) {
                         0 -> slideState.scrollToPage(1)
                         1 -> slideState.scrollToPage(2)

@@ -1,5 +1,7 @@
 package com.simplify.simplify.ui.presentation.slides
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,7 +31,13 @@ import com.simplify.simplify.ui.theme.simplifyTypography
 fun Slide1(innerPadding: PaddingValues) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(8.dp).fillMaxSize().padding(innerPadding),
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxSize()
+            .padding(innerPadding)
+            .verticalScroll(
+                rememberScrollState()
+            ),
         verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
         SimplifyText(R.string.welcome_msg, style = simplifyTypography.titleMedium)

@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,8 +34,14 @@ fun Slide3(innerPadding: PaddingValues, onComplete: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
-        modifier = Modifier.fillMaxSize().padding(innerPadding).padding(8.dp)
-    ) {
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)
+            .padding(8.dp)
+            .verticalScroll(
+                rememberScrollState()
+            ))
+    {
         SimplifyText(text = R.string.schedule_of_events, style = typography.titleLarge)
         SimplifyText(
             text = R.string.visualize_the_events_in_your_city,
