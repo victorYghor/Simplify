@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -88,7 +90,10 @@ dependencies {
     // google play services
     implementation("com.google.android.gms:play-services-auth:20.7.0")
 
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    // protoDataStore
+    implementation("androidx.datastore:datastore:1.0.0")
+    // serialization of objects
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
     // splash screen
     implementation("androidx.core:core-splashscreen:1.1.0-alpha02")
