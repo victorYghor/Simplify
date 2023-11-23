@@ -15,8 +15,7 @@ import com.simplify.simplify.ui.theme.SimplifyTheme
 
 
 class MainActivity : AppCompatActivity() {
-    val Context.dataStore by dataStore("user-setting.json", UserSettingsSerializer)
-    val viewModel = MainViewModel(dataStore)
+    val viewModel = MainViewModel(application)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()

@@ -1,6 +1,9 @@
 package com.simplify.simplify.model
 
+import android.content.Context
+import androidx.datastore.core.DataStore
 import androidx.datastore.core.Serializer
+import androidx.datastore.dataStore
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import java.io.InputStream
@@ -30,5 +33,9 @@ object UserSettingsSerializer : Serializer<UserSettings> {
             ).encodeToByteArray()
         )
     }
-
 }
+
+val Context.userSettingDataStore: DataStore<UserSettings> by dataStore(
+    fileName = "user_settings.json",
+    serializer = UserSettingsSerializer
+)
