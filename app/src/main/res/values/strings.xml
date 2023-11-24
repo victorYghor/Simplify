@@ -1,23 +1,28 @@
 <resources>
-    <!--First screen-->
-    <string name="app_name" translatable="false">Symplify</string>
+    <!--First slide-->
+    <string name="app_name" translatable="false">Symplificou</string>
     <string name="welcome_msg">Seja bem-vindo ao:</string>
-    <string name="here_you_can_stay_up">Aqui você fica por dentro dos principais eventos que ocorrem em sua região</string>
+    <string name="here_you_can_stay_up">Aqui você fica por dentro dos principais eventos que ocorrem em sua região!</string>
     <string name="always_be_notified">Seja sempre notificado!</string>
     <string name="custom_notifications">Notificações personalizadas</string>
-    <!--Second screen-->
-    <string name="events_are_better_with_friends">Events are better with friends</string>
+    <string name="next">próximo</string>
+    <!--Second slide-->
+    <string name="events_are_better_with_friends">Eventos são melhores com amigos</string>
     <string name="engage_in">Engajem nos eventos com sua comunidade</string>
     <string name="see_what_people_are_saying">Veja o que as pessoas estão falando sobre esse evento.</string>
-    <!--third screen-->
+    <!--third slide-->
     <string name="see_your_photos_taken">Veja suas fotos tiradas nos eventos</string>
     <string name="conect_with_partipants">Conecte-se com os participantes</string>
+    <string name="schedule_of_events">Agenda de eventos</string>
+    <string name="visualize_the_events_in_your_city">Visualize os eventos que ocorrem em sua cidade de uma maneira simplificada</string>
+    <string name="start">começar</string>
     <!--MVP strings-->
     <string name="enter">Entrar</string>
-    <string name="contunie_with">continue com </string>
+    <string name="contunie_with">continue com  </string>
     <string name="google" translatable="false">google</string>
     <string name="facebook" translatable="false">facebook</string>
     <string name="linkedin" translatable="false">linkedin</string>
+    <string name="git_hub">Github</string>
 
     <!--Strings for the future versions of the app-->
     <string name="recover_password">Recuperação de senha</string>
@@ -27,4 +32,17 @@
     <string name="put_your_code">insira seu código</string>
     <string name="login">Login</string>
     <string name="btn_go_to_next_slides">botão ir para o próximo slide</string>
+    <string name="simplify_logo">symplificou logo</string>
+    <string name="continue_you_agree">Continuando, você concorda com os </string>
+    <string name="service_terms">termos de serviço.</string>
+    <string name="of_simplify">do symplificou</string>
+    <string name="we_use_personal_info">Nos utilizamos informações pessoais como descrevemos na nossa</string>
+    <string name="privacy_policy">políticas de privacidade.</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">symplificou</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fbsymplificou</string>
+
+    <!-- Firebase info -->
+    <string name="web_client_id">1098570399805-145sdnvv1dgnah1n2k5r9c6no86ihe3a.apps.googleusercontent.com</string>
 </resources>
