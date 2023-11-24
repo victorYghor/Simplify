@@ -1,7 +1,6 @@
 package com.simplify.simplify
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.simplify.simplify.model.IsFirstAccess
 import com.simplify.simplify.ui.theme.SimplifyTheme
@@ -22,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val viewModel: MainViewModel = MainViewModel(application)
         installSplashScreen().setKeepOnScreenCondition(condition = {
-            (viewModel.userSettings.value.isFirstAccess == IsFirstAccess.LOADING) || (viewModel.isUserAccess?.isCompleted ?: false).not()
+            (viewModel.userSettings.value.isFirstAccess == IsFirstAccess.LOADING) || (viewModel.isUserAccess?.isCompleted
+                ?: false).not()
         })
         val isFirstAccess = viewModel.userSettings.value.isFirstAccess
         setContent {
@@ -37,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onDestroy() {
         val viewModel: MainViewModel by viewModels<MainViewModel>()
         runBlocking {

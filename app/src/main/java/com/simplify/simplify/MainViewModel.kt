@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _userSettings = MutableStateFlow(UserSettings())
@@ -27,7 +26,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var isUserAccess: Job? = null
 
     init {
-       isUserAccess = viewModelScope.launch(Dispatchers.IO) {
+        isUserAccess = viewModelScope.launch(Dispatchers.IO) {
             userSettingsDataStore.data.collectLatest { data ->
                 _userSettings.update {
                     it.copy(

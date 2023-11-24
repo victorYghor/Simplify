@@ -1,6 +1,5 @@
 package com.simplify.simplify
 
-import android.app.Presentation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -24,7 +23,7 @@ fun SimplifyNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = if(firstAccess == IsFirstAccess.FIRST_TIME) PRESENTATION else LOGIN
+        startDestination = if (firstAccess == IsFirstAccess.FIRST_TIME) PRESENTATION else LOGIN
     ) {
         composable(PRESENTATION) {
             PresentationScreen(
