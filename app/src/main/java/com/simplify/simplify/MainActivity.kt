@@ -9,9 +9,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import com.simplify.simplify.model.IsFirstAccess
 import com.simplify.simplify.ui.theme.SimplifyTheme
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.job
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.selects.select
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +23,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel: MainViewModel = MainViewModel(application)
+        runBlocking {
+            viewModel.jobGetUserInfo?.join()
+        }
         installSplashScreen().setKeepOnScreenCondition(condition = {
-            (viewModel.userSettings.value.isFirstAccess == IsFirstAccess.LOADING) || (viewModel.isUserAccess?.isCompleted
-                ?: false).not()
+            viewModel.userSettings.value.isFirstAccess == IsFirstAccess.LOADING
         })
         val isFirstAccess = viewModel.userSettings.value.isFirstAccess
         setContent {

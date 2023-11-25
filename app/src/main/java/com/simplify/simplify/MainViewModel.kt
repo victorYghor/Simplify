@@ -23,10 +23,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val userSettingsDataStore: DataStore<UserSettings>
         get() = getApplication<Application>().applicationContext.userSettingDataStore
 
-    var isUserAccess: Job? = null
+    var jobGetUserInfo: Job? = null
 
     init {
-        isUserAccess = viewModelScope.launch(Dispatchers.IO) {
+        jobGetUserInfo = viewModelScope.launch(Dispatchers.IO) {
             userSettingsDataStore.data.collectLatest { data ->
                 _userSettings.update {
                     it.copy(
