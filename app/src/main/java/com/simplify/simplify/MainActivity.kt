@@ -10,26 +10,26 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.simplify.simplify.model.IsFirstAccess
+import com.simplify.simplify.model.FirstStates
 import com.simplify.simplify.ui.theme.SimplifyTheme
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.selects.select
 
 
 class MainActivity : AppCompatActivity() {
+    val viewModel: MainViewModel by viewModels()
+    val scope = this.lifecycleScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: MainViewModel = MainViewModel(application)
-        runBlocking {
-            viewModel.jobGetUserInfo?.join()
+        var isFirstAccess: FirstStates? = null
+        scope.launch {
+            isFirstAccess = viewModel.retrieveDataStore()
         }
         installSplashScreen().setKeepOnScreenCondition(condition = {
-            viewModel.userSettings.value.isFirstAccess == IsFirstAccess.LOADING
+            viewModel.dataStoreIsLoading.value
         })
-        val isFirstAccess = viewModel.userSettings.value.isFirstAccess
         setContent {
             SimplifyTheme {
                 Surface(
@@ -37,17 +37,14 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     supportActionBar?.hide()
-                    SimplifyNavHost(firstAccess = isFirstAccess)
+                    SimplifyNavHost(firstAccess = isFirstAccess!!)
                 }
             }
         }
     }
 
     override fun onDestroy() {
-        val viewModel: MainViewModel by viewModels<MainViewModel>()
-        runBlocking {
-            viewModel.endFirstTime()
-        }
+        viewModel.endFirstTime()
         super.onDestroy()
     }
 }

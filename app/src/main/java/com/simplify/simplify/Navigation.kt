@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.simplify.simplify.Destinations.LOGIN
 import com.simplify.simplify.Destinations.PRESENTATION
-import com.simplify.simplify.model.IsFirstAccess
+import com.simplify.simplify.model.FirstStates
 import com.simplify.simplify.ui.login.LoginScreen
 import com.simplify.simplify.ui.presentation.PresentationScreen
 
@@ -19,11 +19,11 @@ object Destinations {
 @Composable
 fun SimplifyNavHost(
     navController: NavHostController = rememberNavController(),
-    firstAccess: IsFirstAccess
+    firstAccess: FirstStates
 ) {
     NavHost(
         navController = navController,
-        startDestination = if (firstAccess == IsFirstAccess.FIRST_TIME) PRESENTATION else LOGIN
+        startDestination = if (firstAccess == FirstStates.FIRST_ACCESS) PRESENTATION else LOGIN
     ) {
         composable(PRESENTATION) {
             PresentationScreen(
