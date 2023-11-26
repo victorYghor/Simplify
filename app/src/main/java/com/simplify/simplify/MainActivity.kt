@@ -12,9 +12,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.simplify.simplify.model.FirstStates
 import com.simplify.simplify.ui.theme.SimplifyTheme
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 class MainActivity : AppCompatActivity() {

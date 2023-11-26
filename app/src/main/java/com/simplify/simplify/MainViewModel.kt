@@ -9,13 +9,12 @@ import com.simplify.simplify.model.UserSettings
 import com.simplify.simplify.model.UserSettingsSerializer
 import com.simplify.simplify.model.userSettingDataStore
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.async
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _dataStoreIsLoading = MutableStateFlow<Boolean>(true)
@@ -26,7 +25,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         userSettingsDataStore.data.collectLatest { data ->
             _userSettings.update {
                 it.copy(
-                    isFirstAccess = if(data.isFirstAccess == FirstStates.LOADING)
+                    isFirstAccess = if (data.isFirstAccess == FirstStates.LOADING)
                         FirstStates.FIRST_ACCESS
                     else
                         data.isFirstAccess
@@ -38,7 +37,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     suspend fun retrieveDataStore(): FirstStates {
         return viewModelScope.async {
-            if(userSettings.isCompleted) {
+            if (userSettings.isCompleted) {
                 _dataStoreIsLoading.update {
                     false
                 }
@@ -46,6 +45,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             userSettings.await().value.isFirstAccess
         }.await()
     }
+
     private val userSettingsDataStore: DataStore<UserSettings>
         get() = getApplication<Application>().applicationContext.userSettingDataStore
 
