@@ -9,9 +9,7 @@ import com.simplify.simplify.model.FirstStates
 import com.simplify.simplify.model.UserSettings
 import com.simplify.simplify.model.UserSettingsSerializer
 import com.simplify.simplify.model.userSettingDataStore
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -38,11 +36,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             userSettingsDataStore.data.collectLatest { data ->
                 _userSettings.update {
-                    it.copy(isFirstAccess =
-                    if (data.isFirstAccess == FirstStates.LOADING)
-                        FirstStates.FIRST_ACCESS
-                    else
-                        data.isFirstAccess
+                    it.copy(
+                        isFirstAccess =
+                        if (data.isFirstAccess == FirstStates.LOADING)
+                            FirstStates.FIRST_ACCESS
+                        else
+                            data.isFirstAccess
                     )
 
                 }
