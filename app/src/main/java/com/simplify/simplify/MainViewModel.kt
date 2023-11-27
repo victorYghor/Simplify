@@ -1,6 +1,7 @@
 package com.simplify.simplify
 
 import android.app.Application
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,6 +9,7 @@ import com.simplify.simplify.model.FirstStates
 import com.simplify.simplify.model.UserSettings
 import com.simplify.simplify.model.UserSettingsSerializer
 import com.simplify.simplify.model.userSettingDataStore
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,34 +19,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private val _dataStoreIsLoading = MutableStateFlow<Boolean>(true)
-    val dataStoreIsLoading = _dataStoreIsLoading.asStateFlow()
 
     private val _userSettings = MutableStateFlow(UserSettings())
-    val userSettings = viewModelScope.async {
-        userSettingsDataStore.data.collectLatest { data ->
-            _userSettings.update {
-                it.copy(
-                    isFirstAccess = if (data.isFirstAccess == FirstStates.LOADING)
-                        FirstStates.FIRST_ACCESS
-                    else
-                        data.isFirstAccess
-                )
-            }
-        }
-        _userSettings.asStateFlow()
-    }
+    val userSettings = _userSettings.asStateFlow()
 
-    suspend fun retrieveDataStore(): FirstStates {
-        return viewModelScope.async {
-            if (userSettings.isCompleted) {
-                _dataStoreIsLoading.update {
-                    false
-                }
-            }
-            userSettings.await().value.isFirstAccess
-        }.await()
-    }
 
     private val userSettingsDataStore: DataStore<UserSettings>
         get() = getApplication<Application>().applicationContext.userSettingDataStore
@@ -56,7 +34,26 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun endFirstTime() {
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            userSettingsDataStore.data.collectLatest { data ->
+                _userSettings.update {
+                    it.copy(isFirstAccess =
+                    if (data.isFirstAccess == FirstStates.LOADING)
+                        FirstStates.FIRST_ACCESS
+                    else
+                        data.isFirstAccess
+                    )
+
+                }
+                Log.i("init", "end of dataStore")
+            }
+            Log.i("init", "end of couroutine")
+        }
+    }
+
+    // todo use work manager for that
+    suspend fun endFirstTime() {
         viewModelScope.launch(Dispatchers.IO) {
             userSettingsDataStore.data.collectLatest {
                 _userSettings.update {
@@ -65,6 +62,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
             }
-        }
+        }.join()
     }
 }

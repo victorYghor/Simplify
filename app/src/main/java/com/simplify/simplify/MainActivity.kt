@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
@@ -21,28 +24,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var isFirstAccess: FirstStates? = null
-        scope.launch {
-            isFirstAccess = viewModel.retrieveDataStore()
-        }
+
         installSplashScreen().setKeepOnScreenCondition(condition = {
-            viewModel.dataStoreIsLoading.value
+            viewModel.userSettings.value.isFirstAccess == FirstStates.LOADING
         })
+
+
+
         setContent {
             SimplifyTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val firstAccess by remember { mutableStateOf(viewModel.userSettings.value.isFirstAccess) }
                     supportActionBar?.hide()
-                    SimplifyNavHost(firstAccess = isFirstAccess!!)
+                    SimplifyNavHost(firstAccess = firstAccess)
                 }
             }
         }
     }
 
-    override fun onDestroy() {
-        viewModel.endFirstTime()
-        super.onDestroy()
+    override fun onStop() {
+        scope.launch {
+            viewModel.endFirstTime()
+        }
+        super.onStop()
     }
+
 }
