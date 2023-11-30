@@ -1,5 +1,6 @@
 package com.simplify.simplify
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -7,7 +8,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.simplify.simplify.Destinations.LOGIN
 import com.simplify.simplify.Destinations.PRESENTATION
-import com.simplify.simplify.model.IsFirstAccess
 import com.simplify.simplify.ui.login.LoginScreen
 import com.simplify.simplify.ui.presentation.PresentationScreen
 
@@ -19,11 +19,11 @@ object Destinations {
 @Composable
 fun SimplifyNavHost(
     navController: NavHostController = rememberNavController(),
-    firstAccess: IsFirstAccess
+    firstAccess: Boolean
 ) {
     NavHost(
         navController = navController,
-        startDestination = if (firstAccess == IsFirstAccess.FIRST_TIME) PRESENTATION else LOGIN
+        startDestination = if(firstAccess) PRESENTATION else LOGIN
     ) {
         composable(PRESENTATION) {
             PresentationScreen(
@@ -34,7 +34,6 @@ fun SimplifyNavHost(
                 }
             )
         }
-
         composable(LOGIN) {
             LoginScreen()
         }

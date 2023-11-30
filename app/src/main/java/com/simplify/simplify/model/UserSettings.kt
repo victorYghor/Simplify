@@ -4,10 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserSettings(
-    val isFirstAccess: IsFirstAccess = IsFirstAccess.LOADING,
+    val isFirstAccess: Boolean
 )
-
-@Serializable
-enum class IsFirstAccess {
-    FIRST_TIME, NORMAL, LOADING;
-}
